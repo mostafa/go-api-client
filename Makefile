@@ -14,7 +14,7 @@ is-go-installed:
 .PHONY: generate-openapi-client
 generate-openapi-client: is-go-installed
 	@GO_POST_PROCESS_FILE="gofmt -w" docker run --rm \
-		-v "./logto:/local" \
+		-v "./:/local" \
 		-v "./openapi/templates:/openapi/templates" \
 		openapitools/openapi-generator-cli generate \
 		-i https://openapi.logto.io/source.json \
@@ -27,4 +27,4 @@ generate-openapi-client: is-go-installed
 		--git-user-id=$(GIT_USER_ID) \
 		--git-repo-id=$(GIT_REPO_ID) \
 		-o /local/
-	@cd logto && go mod tidy
+	@go mod tidy
