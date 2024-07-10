@@ -2,4 +2,4 @@ module main
 
 go 1.22
 
-require github.com/mostafa/go-api-client v0.1.0
+require github.com/davecgh/go-spew v1.1.1
